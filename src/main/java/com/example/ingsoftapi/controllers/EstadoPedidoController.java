@@ -1,7 +1,7 @@
 package com.example.ingsoftapi.controllers;
 
-import com.example.ingsoftapi.model.EstadoPedido;
-import com.example.ingsoftapi.service.EstadoPedidoService;
+import com.example.ingsoftapi.models.EstadoPedido;
+import com.example.ingsoftapi.services.EstadoPedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
