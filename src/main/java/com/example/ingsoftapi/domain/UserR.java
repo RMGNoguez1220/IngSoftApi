@@ -35,16 +35,16 @@ public class UserR extends  Response{
     }
     public Object response() {
         data.put("Flag", isFlag());
-        data.put("Message", getMessage());
-        data.put("Status", getStatusCode());
+        data.put("Message", getMensaje());
+        data.put("Status", getStatus());
         data.put("Data", this.user);
         return data;
     }
 
     public Object response2() {
         data.put("Flag", isFlag());
-        data.put("Message", getMessage());
-        data.put("Status", getStatusCode());
+        data.put("Message", getMensaje());
+        data.put("Status", getStatus());
         data.put("Data", this.listUser);
         return data;
     }
