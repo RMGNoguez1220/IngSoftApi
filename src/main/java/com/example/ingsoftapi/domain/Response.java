@@ -8,7 +8,7 @@ import lombok.*;
 @ToString
 public class Response {
     private boolean flag;
-    private String message;
-    private int statusCode;
+    private String mensaje;
+    private int status;
 
 }

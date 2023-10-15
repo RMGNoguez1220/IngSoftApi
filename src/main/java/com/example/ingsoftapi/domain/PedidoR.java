@@ -32,16 +32,16 @@ public class PedidoR extends Response {
 
     public Object response() {
         data.put("Flag", isFlag());
-        data.put("Message", getMessage());
-        data.put("Status", getStatusCode());
+        data.put("Message", getMensaje());
+        data.put("Status", getStatus());
         data.put("Data", this.pedido);
         return data;
     }
 
     public Object responseList() {
         data.put("Flag", isFlag());
-        data.put("Message", getMessage());
-        data.put("Status", getStatusCode());
+        data.put("Message", getMensaje());
+        data.put("Status", getStatus());
         data.put("Data", this.listPedido);
         return data;
     }

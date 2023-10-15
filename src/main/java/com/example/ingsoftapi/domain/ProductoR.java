@@ -32,16 +32,16 @@ public class ProductoR extends Response {
 
     public Object response(){
         data.put("Flag", isFlag());
-        data.put("Message",getMessage());
-        data.put("Status", getStatusCode());
+        data.put("Message", getMensaje());
+        data.put("Status", getStatus());
         data.put("Data",this.producto);
         return data;
     }
 
     public Object responseList() {
         data.put("Flag", isFlag());
-        data.put("Message", getMessage());
-        data.put("Status", getStatusCode());
+        data.put("Message", getMensaje());
+        data.put("Status", getStatus());
         data.put("Data", this.listProducto);
         return data;
     }

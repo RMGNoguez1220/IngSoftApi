@@ -1,9 +1,7 @@
 package com.example.ingsoftapi.domain;
 
-import com.example.ingsoftapi.model.Resena;
-
+import com.example.ingsoftapi.model.TipoPago;
 import lombok.*;
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,32 +10,32 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class ResenaR extends Response {
-    private Resena resena;
-    private List<Resena> listResena;
+public class TipoPagoR extends Response{
+    private TipoPago tipoPago;
+    private List<TipoPago> listTipoPago;
     HashMap<String,Object> data = new HashMap<>();
 
-    public ResenaR(Resena resena, String message, int status, boolean flag) {
+    public TipoPagoR(TipoPago tipoPago, String message, int status, boolean flag){
         super(flag, message, status);
-        this.resena = resena;
+        this.tipoPago=tipoPago;
+
     }
 
-    //DELETE
-    public ResenaR(String message, int status, boolean flag) {
+    public TipoPagoR(String message,int status,boolean flag){
         super(flag, message, status);
+
     }
 
-    //GET All
-    public ResenaR(List<Resena> listResena, String message, int status, boolean flag) {
+    public TipoPagoR(List<TipoPago> listTipoPago,String message, int status, boolean flag){
         super(flag, message, status);
-        this.listResena = listResena;
-    }
+        this.listTipoPago=listTipoPago;
 
+    }
     public Object response() {
         data.put("Flag", isFlag());
         data.put("Message", getMensaje());
         data.put("Status", getStatus());
-        data.put("Data", this.resena);
+        data.put("Data", this.tipoPago);
         return data;
     }
 
@@ -45,7 +43,8 @@ public class ResenaR extends Response {
         data.put("Flag", isFlag());
         data.put("Message", getMensaje());
         data.put("Status", getStatus());
-        data.put("Data", this.listResena);
+        data.put("Data", this.listTipoPago);
         return data;
     }
 }
+
