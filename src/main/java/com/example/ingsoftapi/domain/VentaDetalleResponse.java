@@ -10,21 +10,21 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class VentaDetalleR extends Response {
+public class VentaDetalleResponse extends Response {
     private VentaDetalle ventaDetalle;
     private List<VentaDetalle> listVentaD;
     private HashMap<String, Object> data = new HashMap<>();
 
-    public VentaDetalleR(final VentaDetalle ventaDetalle, final String message, final int status, final boolean flag) {
+    public VentaDetalleResponse(final VentaDetalle ventaDetalle, final String message, final int status, final boolean flag) {
         super(flag, message, status);
         this.ventaDetalle = ventaDetalle;
     }
 
-    public VentaDetalleR(final String message, final int status, final boolean flag) {
+    public VentaDetalleResponse(final String message, final int status, final boolean flag) {
         super(flag, message, status);
     }
 
-    public VentaDetalleR(final List<VentaDetalle> ventaDetalleList, final String message, final int status, final boolean flag) {
+    public VentaDetalleResponse(final List<VentaDetalle> ventaDetalleList, final String message, final int status, final boolean flag) {
         super(flag, message, status);
         this.listVentaD = ventaDetalleList;
     }

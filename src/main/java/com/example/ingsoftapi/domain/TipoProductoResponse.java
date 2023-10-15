@@ -4,23 +4,23 @@ import com.example.ingsoftapi.model.TipoProducto;
 import java.util.HashMap;
 import java.util.List;
 
-public class TipoProductoR extends Response{
+public class TipoProductoResponse extends Response{
     private TipoProducto tipoProducto;
     private List<TipoProducto> listTipoProducto;
     HashMap<String,Object> data = new HashMap<>();
 
-    public TipoProductoR(TipoProducto tipoProducto, String message, int status, boolean flag){
+    public TipoProductoResponse(TipoProducto tipoProducto, String message, int status, boolean flag){
         super(flag, message, status);
         this.tipoProducto=tipoProducto;
 
     }
 
-    public TipoProductoR(String message,int status,boolean flag){
+    public TipoProductoResponse(String message, int status, boolean flag){
         super(flag, message, status);
 
     }
 
-    public TipoProductoR(List<TipoProducto> listTipoProducto,String message, int status, boolean flag){
+    public TipoProductoResponse(List<TipoProducto> listTipoProducto, String message, int status, boolean flag){
         super(flag, message, status);
         this.listTipoProducto=listTipoProducto;
 

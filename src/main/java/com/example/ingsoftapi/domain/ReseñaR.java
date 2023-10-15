@@ -12,23 +12,23 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class ResenaR extends Response {
+public class ResenaResponse extends Response {
     private Resena resena;
     private List<Resena> listResena;
     HashMap<String,Object> data = new HashMap<>();
 
-    public ResenaR(Resena resena, String message, int status, boolean flag) {
+    public ResenaResponse(Resena resena, String message, int status, boolean flag) {
         super(flag, message, status);
         this.resena = resena;
     }
 
     //DELETE
-    public ResenaR(String message, int status, boolean flag) {
+    public ResenaResponse(String message, int status, boolean flag) {
         super(flag, message, status);
     }
 
     //GET All
-    public ResenaR(List<Resena> listResena, String message, int status, boolean flag) {
+    public ResenaResponse(List<Resena> listResena, String message, int status, boolean flag) {
         super(flag, message, status);
         this.listResena = listResena;
     }

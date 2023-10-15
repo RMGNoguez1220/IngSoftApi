@@ -11,21 +11,21 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class EstadoPedidoR extends Response {
+public class EstadoPedidoResponse extends Response {
     private EstadoPedido estadoPedido;
     private List<EstadoPedido> listEstadoPedido;
     private HashMap<String, Object> data = new HashMap<>();
 
-    public EstadoPedidoR(final EstadoPedido estadoPedido, final String message, final int status, final boolean flag) {
+    public EstadoPedidoResponse(final EstadoPedido estadoPedido, final String message, final int status, final boolean flag) {
         super(flag, message, status);
         this.estadoPedido = estadoPedido;
     }
 
-    public EstadoPedidoR(final String message, final int status, final boolean flag) {
+    public EstadoPedidoResponse(final String message, final int status, final boolean flag) {
         super(flag, message, status);
     }
 
-    public EstadoPedidoR(final List<EstadoPedido> estadoPedidoList, final String message, final int status, final boolean flag) {
+    public EstadoPedidoResponse(final List<EstadoPedido> estadoPedidoList, final String message, final int status, final boolean flag) {
         super(flag, message, status);
         this.listEstadoPedido = estadoPedidoList;
     }

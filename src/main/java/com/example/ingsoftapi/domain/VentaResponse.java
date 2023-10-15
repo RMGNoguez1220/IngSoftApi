@@ -1,6 +1,6 @@
 package com.example.ingsoftapi.domain;
 
-import com.example.ingsoftapi.model.Pedido;
+import com.example.ingsoftapi.model.Venta;
 import lombok.*;
 
 import java.util.HashMap;
@@ -11,30 +11,32 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class PedidoR extends Response {
-    private Pedido pedido;
-    private List<Pedido> listPedido;
-    private HashMap<String, Object> data = new HashMap<>();
+public class VentaResponse extends Response{
+    private Venta venta;
+    private List<Venta> listVenta;
+    HashMap<String,Object> data = new HashMap<>();
 
-    public PedidoR(final Pedido pedido, final String message, final int status, final boolean flag) {
+    public VentaResponse(Venta venta, String message, int status, boolean flag){
         super(flag, message, status);
-        this.pedido = pedido;
+        this.venta=venta;
+
     }
 
-    public PedidoR(final String message, final int status, final boolean flag) {
+    public VentaResponse(String message, int status, boolean flag){
         super(flag, message, status);
+
     }
 
-    public PedidoR(final List<Pedido> pedidoList, final String message, final int status, final boolean flag) {
+    public VentaResponse(List<Venta> listVenta, String message, int status, boolean flag){
         super(flag, message, status);
-        this.listPedido = pedidoList;
-    }
+        this.listVenta=listVenta;
 
+    }
     public Object response() {
         data.put("Flag", isFlag());
         data.put("Message", getMensaje());
         data.put("Status", getStatus());
-        data.put("Data", this.pedido);
+        data.put("Data", this.venta);
         return data;
     }
 
@@ -42,7 +44,7 @@ public class PedidoR extends Response {
         data.put("Flag", isFlag());
         data.put("Message", getMensaje());
         data.put("Status", getStatus());
-        data.put("Data", this.listPedido);
+        data.put("Data", this.listVenta);
         return data;
     }
 }

@@ -11,21 +11,21 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class ProductoR extends Response {
+public class ProductoResponse extends Response {
     private Producto producto;
     private List<Producto> listProducto;
     HashMap<String,Object> data = new HashMap<>();
 
-    public ProductoR(Producto producto, String message, int status, boolean flag){
+    public ProductoResponse(Producto producto, String message, int status, boolean flag){
         super(flag, message, status);
         this.producto = producto;
     }
 
-    public ProductoR(String message,int status, boolean flag){
+    public ProductoResponse(String message, int status, boolean flag){
         super(flag,message,status);
     }
 
-    public ProductoR(List<Producto> listProducto, String message, int status, boolean flag){
+    public ProductoResponse(List<Producto> listProducto, String message, int status, boolean flag){
         super(flag,message,status);
         this.listProducto = listProducto;
     }

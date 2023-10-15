@@ -10,22 +10,22 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class TiendaR extends Response {
+public class TiendaResponse extends Response {
     private Tienda tienda;
     private List<Tienda> listTienda;
     HashMap<String, Object> data = new HashMap<>();
 
-    public TiendaR(Tienda tienda, String message, int status, boolean flag) {
+    public TiendaResponse(Tienda tienda, String message, int status, boolean flag) {
         super(flag, message, status);
         this.tienda = tienda;
     }
 
-    public TiendaR(String message, int status, boolean flag) {
+    public TiendaResponse(String message, int status, boolean flag) {
         super(flag, message, status);
 
     }
 
-    public TiendaR(List<Tienda> listTienda, String message, int status, boolean flag) {
+    public TiendaResponse(List<Tienda> listTienda, String message, int status, boolean flag) {
         super(flag, message, status);
         this.listTienda = listTienda;
     }

@@ -11,19 +11,19 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class CategoriaR extends Response {
+public class CategoriaResponse extends Response {
     private Categoria categoria;
     private List<Categoria> listCategoria;
     HashMap<String,Object> data = new HashMap<>();
-    public CategoriaR(Categoria categoria, String message, int status, boolean flag){
+    public CategoriaResponse(Categoria categoria, String message, int status, boolean flag){
         super(flag, message, status);
         this.categoria=categoria;
 
     }
-    public CategoriaR(String message,int status,boolean flag){
+    public CategoriaResponse(String message, int status, boolean flag){
         super(flag, message, status);
     }
-    public CategoriaR(List<Categoria> listCategoria,String message, int status, boolean flag){
+    public CategoriaResponse(List<Categoria> listCategoria, String message, int status, boolean flag){
         super(flag, message, status);
         this.listCategoria=listCategoria;
 

@@ -12,7 +12,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class UserR extends  Response{
+public class UserResponse extends  Response{
     private User user;
     private List<User> listUser;
     HashMap<String,Object> data = new HashMap<>();

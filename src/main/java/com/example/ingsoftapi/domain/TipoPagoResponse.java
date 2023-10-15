@@ -1,8 +1,7 @@
 package com.example.ingsoftapi.domain;
 
-import com.example.ingsoftapi.model.Venta;
+import com.example.ingsoftapi.model.TipoPago;
 import lombok.*;
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,32 +10,32 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class VentaR extends Response{
-    private Venta venta;
-    private List<Venta> listVenta;
+public class TipoPagoResponse extends Response{
+    private TipoPago tipoPago;
+    private List<TipoPago> listTipoPago;
     HashMap<String,Object> data = new HashMap<>();
 
-    public VentaR(Venta venta,String message,int status,boolean flag){
+    public TipoPagoResponse(TipoPago tipoPago, String message, int status, boolean flag){
         super(flag, message, status);
-        this.venta=venta;
+        this.tipoPago=tipoPago;
 
     }
 
-    public VentaR(String message,int status,boolean flag){
+    public TipoPagoResponse(String message, int status, boolean flag){
         super(flag, message, status);
 
     }
 
-    public VentaR(List<Venta> listVenta,String message, int status, boolean flag){
+    public TipoPagoResponse(List<TipoPago> listTipoPago, String message, int status, boolean flag){
         super(flag, message, status);
-        this.listVenta=listVenta;
+        this.listTipoPago=listTipoPago;
 
     }
     public Object response() {
         data.put("Flag", isFlag());
         data.put("Message", getMensaje());
         data.put("Status", getStatus());
-        data.put("Data", this.venta);
+        data.put("Data", this.tipoPago);
         return data;
     }
 
@@ -44,7 +43,7 @@ public class VentaR extends Response{
         data.put("Flag", isFlag());
         data.put("Message", getMensaje());
         data.put("Status", getStatus());
-        data.put("Data", this.listVenta);
+        data.put("Data", this.listTipoPago);
         return data;
     }
 }
