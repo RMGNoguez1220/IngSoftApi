@@ -16,18 +16,15 @@ public class PedidoR extends R {
     private List<Pedido> listPedido;
     private HashMap<String, Object> data = new HashMap<>();
 
-    //  GET ONLY ONE RECORD
     public PedidoR(final Pedido pedido, final String message, final int status, final boolean flag) {
         super(flag, message, status);
         this.pedido = pedido;
     }
 
-    //  DELETE
     public PedidoR(final String message, final int status, final boolean flag) {
         super(flag, message, status);
     }
 
-    //  GET ALL
     public PedidoR(final List<Pedido> pedidoList, final String message, final int status, final boolean flag) {
         super(flag, message, status);
         this.listPedido = pedidoList;
@@ -39,7 +36,7 @@ public class PedidoR extends R {
         data.put("Status", getStatusCode());
         data.put("Data", this.pedido);
         return data;
-    } //close method
+    }
 
     public Object responseList() {
         data.put("Flag", isFlag());
@@ -47,6 +44,6 @@ public class PedidoR extends R {
         data.put("Status", getStatusCode());
         data.put("Data", this.listPedido);
         return data;
-    } //close method
-} //close class
+    }
+}
 
