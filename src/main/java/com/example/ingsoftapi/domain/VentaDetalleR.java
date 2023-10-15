@@ -14,7 +14,7 @@ public class VentaDetalleR extends Response {
     private VentaDetalle ventaDetalle;
     private List<VentaDetalle> listVentaD;
     private HashMap<String, Object> data = new HashMap<>();
-    
+
     public VentaDetalleR(final VentaDetalle ventaDetalle, final String message, final int status, final boolean flag) {
         super(flag, message, status);
         this.ventaDetalle = ventaDetalle;
