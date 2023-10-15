@@ -22,7 +22,6 @@ public class CategoriaR extends R {
     }
     public CategoriaR(String message,int status,boolean flag){
         super(flag, message, status);
-
     }
     public CategoriaR(List<Categoria> listCategoria,String message, int status, boolean flag){
         super(flag, message, status);

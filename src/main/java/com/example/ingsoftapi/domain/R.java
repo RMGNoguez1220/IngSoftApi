@@ -1,9 +1,6 @@
 package com.example.ingsoftapi.domain;
 
 import lombok.*;
-
-import java.util.HashMap;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
