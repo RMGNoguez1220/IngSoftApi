@@ -1,5 +1,6 @@
 package com.example.ingsoftapi.domain;
 
+import com.example.ingsoftapi.model.categoria;
 import lombok.*;
 
 import java.util.HashMap;
@@ -33,14 +34,6 @@ public class CategoriaR extends R {
         data.put("Message", getMessage());
         data.put("Status", getStatusCode());
         data.put("Data", this.categoria);
-        return data;
-    }
-
-    public Object response2() {
-        data.put("Flag", isFlag());
-        data.put("Message", getMessage());
-        data.put("Status", getStatusCode());
-        data.put("Data", this.listCategoria);
         return data;
     }
 }
