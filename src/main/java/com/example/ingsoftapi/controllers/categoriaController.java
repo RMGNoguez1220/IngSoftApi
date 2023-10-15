@@ -3,9 +3,8 @@ package com.example.ingsoftapi.controllers;
 import com.example.ingsoftapi.models.categoria;
 import com.example.ingsoftapi.services.categoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,9 +20,24 @@ public class categoriaController {
         this.CategoriaService=CategoriaService;
     }
 
-    @GetMapping
-    public List<categoria> getCategorias(){
-        return this.CategoriaService.getCategorias();
+    @GetMapping("/all")
+    public ResponseEntity<Object> getCategorias(){
+        return this.CategoriaService.getCategoria();
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<Object> registrarCategoria(@RequestBody categoria Categoria){
+        return this.CategoriaService.newCategoria(Categoria);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Object> actualizarCategoria(@PathVariable Long id,@RequestBody categoria Categoria){
+        return this.CategoriaService.updateCategoria(id,Categoria);
+    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Object> eliminarUsuario(@PathVariable Long id) {
+        return this.CategoriaService.eliminar(id);
+
     }
 
 
