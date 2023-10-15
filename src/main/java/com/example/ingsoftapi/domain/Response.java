@@ -6,7 +6,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class R{
+public class Response {
     private boolean flag;
     private String message;
     private int statusCode;

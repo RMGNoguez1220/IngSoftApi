@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class ResenaR extends R {
+public class ResenaR extends Response {
     private Resena resena;
     private List<Resena> listResena;
     HashMap<String,Object> data = new HashMap<>();

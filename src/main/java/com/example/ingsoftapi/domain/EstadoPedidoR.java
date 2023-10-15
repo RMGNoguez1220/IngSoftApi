@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class EstadoPedidoR extends R{
+public class EstadoPedidoR extends Response {
     private EstadoPedido estadoPedido;
     private List<EstadoPedido> listEstadoPedido;
     private HashMap<String, Object> data = new HashMap<>();

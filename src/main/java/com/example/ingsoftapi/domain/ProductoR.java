@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class ProductoR extends R{
+public class ProductoR extends Response {
     private Producto producto;
     private List<Producto> listProducto;
     HashMap<String,Object> data = new HashMap<>();

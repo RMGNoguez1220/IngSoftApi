@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class CategoriaR extends R {
+public class CategoriaR extends Response {
     private Categoria categoria;
     private List<Categoria> listCategoria;
     HashMap<String,Object> data = new HashMap<>();
