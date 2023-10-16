@@ -17,9 +17,9 @@ public class ResenaProductoResponse extends SuperResponse{
     private List<ResenaProducto> resenaproductoList;
     private HashMap<String, Object> data = new HashMap<>();
 
-    public ResenaProductoResponse(final List<ResenaProducto> vendedorList, final String message, final int status, final boolean flag) {
+    public ResenaProductoResponse(final List<ResenaProducto> resenaproductoList, final String message, final int status, final boolean flag) {
         super(flag, message, status);
-        this.resenaproductoList = vendedorList;
+        this.resenaproductoList = resenaproductoList;
     }
 
     public ResenaProductoResponse(String message, int status, boolean flag) {

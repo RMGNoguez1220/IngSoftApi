@@ -17,9 +17,9 @@ public class CarritoProductoResponse extends SuperResponse{
     private List<CarritoProducto> carritoproductoList;
     private HashMap<String, Object> data = new HashMap<>();
 
-    public CarritoProductoResponse(final List<CarritoProducto> vendedorList, final String message, final int status, final boolean flag) {
+    public CarritoProductoResponse(final List<CarritoProducto> carritoproductoList, final String message, final int status, final boolean flag) {
         super(flag, message, status);
-        this.carritoproductoList = vendedorList;
+        this.carritoproductoList = carritoproductoList;
     }
 
     public CarritoProductoResponse(String message, int status, boolean flag) {
