@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public class vendedorController {
     private final vendedorService VendedorService;
 
-    public UsuarioController(vendedorService VendedorService) {
+    public vendedorController(vendedorService VendedorService) {
         this.VendedorService = VendedorService;
     }
 
@@ -32,7 +32,7 @@ public class vendedorController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Object> VendedorDelete(@PathVariable Long id) {
-        return this.vendedorService.userDelete(id);
+        return this.VendedorService.VendedorDelete(id);
     }
 
 

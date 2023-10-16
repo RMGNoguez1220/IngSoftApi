@@ -20,7 +20,7 @@ public class inventarioService {
         this.inventarioRepository = inventarioRepository;
     }
 
-    public ResponseEntity<Object> getUsuarios() {
+    public ResponseEntity<Object> getInventario() {
         List<Usuario> inventarioList = inventarioRepository.findAll();
         if (!inventarioList.isEmpty()) {
             inventarioResponse = new InventarioResponse(inventarioList, "Se han obtenido los registros", 200, true);

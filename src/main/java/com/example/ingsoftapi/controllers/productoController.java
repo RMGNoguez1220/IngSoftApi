@@ -13,22 +13,22 @@ public class productoController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<Object> getAllProduct() {
+    public ResponseEntity<Object> getAllProducto() {
         return productoService.getProducto();
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Object> insertProduct(@RequestBody Producto producto) {
+    public ResponseEntity<Object> insertProducto(@RequestBody Producto producto) {
         return this.productoService.insertProducto(producto);
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Object> updateProduct(@PathVariable Long id, @RequestBody Producto producto) {
-        return this.productoService.updateProduct(id, producto);
+    public ResponseEntity<Object> updateProducto(@PathVariable Long id, @RequestBody Producto producto) {
+        return this.productoService.updateProducto(id, producto);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Object> ProductDelete(@PathVariable Long id) {
+    public ResponseEntity<Object> ProductoDelete(@PathVariable Long id) {
         return this.productoService.ProductoDelete(id);
     }
 }

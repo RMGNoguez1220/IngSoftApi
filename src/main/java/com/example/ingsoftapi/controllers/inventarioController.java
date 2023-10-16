@@ -1,5 +1,6 @@
 package com.example.ingsoftapi.controllers;
 
+import com.example.ingsoftapi.services.inventarioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,15 +8,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/v1/inventario")
 public class inventarioController {
 
-    private final InventarioService inventarioService;
+    private final inventarioService inventarioService;
 
-    public inventarioController(InventarioService inventarioService) {
+    public inventarioController(inventarioService inventarioService) {
         this.inventarioService = inventarioService;
     }
 
     @GetMapping("/all")
     public ResponseEntity<Object> getAllInventario() {
-        return inventarioService.getResena_producto();
+        return inventarioService.getInventario();
     }
 
     @PostMapping("/create")
@@ -30,6 +31,7 @@ public class inventarioController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Object> InventarioDelete(@PathVariable Long id) {
-        return this.inventarioService.InventarioDelete(id);
+        return this.inventarioService.inventarioDelete(id);
     }
+
 }
