@@ -64,5 +64,5 @@ public class UsuarioService {
             usuarioResponse = new UsuarioResponse("No se encontró el usuario que quieres borrar ", 400, false);
             return new ResponseEntity<>(usuarioResponse.responseInsert(), HttpStatus.OK);
         }
-    } //close method
+    }
 }
