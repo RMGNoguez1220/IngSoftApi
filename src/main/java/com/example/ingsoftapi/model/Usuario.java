@@ -1,7 +1,7 @@
 package com.example.ingsoftapi.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.*; //es empleada para usar todas las que conlleva o puede tener como GET, SETTER, NoArgsConstructor, ETC
 
 @NoArgsConstructor
 @AllArgsConstructor
