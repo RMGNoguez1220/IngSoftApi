@@ -16,7 +16,7 @@ public class ResenaProducto {
     private long id_resena;//llama primaria
     private long id_usuario; //llave foranea
     private long id_producto; //llave foranea
-    private int cantidad;
+    private int calificacion;
     private String comentario;
 
 }

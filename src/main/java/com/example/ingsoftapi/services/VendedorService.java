@@ -36,7 +36,7 @@ public class VendedorService {
 
     public ResponseEntity<Object> vendedorInsert(Vendedor vendedor) {
         this.vendedorRepository.save(vendedor);
-        vendedorResponse = new UsuarioResponse(vendedor, "Se pudo crear el pedido", 200, true);
+        vendedorResponse = new VendedorResponse(vendedor, "Se pudo crear el pedido", 200, true);
         return new ResponseEntity<>(vendedorResponse.responseInsert(), HttpStatus.OK);
     }
 
@@ -46,7 +46,6 @@ public class VendedorService {
             vendedorUpdated.setNombre_tienda(vendedor.getNombre_tienda());
             vendedorUpdated.setDescripcion_tienda(vendedor.getDescripcion_tienda());
             vendedorUpdated.setCategoria(vendedor.getCategoria());
-            vendedorUpdated.setId_usuario(vendedor.getId_usuario());
             vendedorRepository.save(vendedorUpdated);
             vendedorResponse = new VendedorResponse(vendedorUpdated, "El vendedor se modificó satisfactoriamente", 200, true);
             return new ResponseEntity<>(vendedorResponse.responseInsert(), HttpStatus.OK);

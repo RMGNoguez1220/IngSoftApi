@@ -17,7 +17,7 @@ public class ResenaProductoController {
 
     @GetMapping("/all")
     public ResponseEntity<Object> getAllResenaProducto() {
-        return ResenaProductoService.getResenaProducto();
+        return resenaproductoService.getResenaProducto();
     }
 
     @PostMapping("/create")

@@ -15,5 +15,5 @@ public class Vendedor {
     private long id_vendedor;
     private String nombre_tienda;
     private String descripcion_tienda;
-    private String categorias;
+    private String categoria;
 }

@@ -2,7 +2,6 @@ package com.example.ingsoftapi.services;
 
 import com.example.ingsoftapi.domain.ResenaProductoResponse;
 import com.example.ingsoftapi.model.ResenaProducto;
-import com.example.ingsoftapi.model.Usuario;
 import com.example.ingsoftapi.repository.ResenaProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

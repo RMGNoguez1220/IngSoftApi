@@ -1,4 +1,7 @@
 package com.example.ingsoftapi.repository;
 
-public interface CarritoCompraRepository {
+import com.example.ingsoftapi.model.CarritoCompra;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CarritoCompraRepository extends JpaRepository<CarritoCompra, Long> {
 }
