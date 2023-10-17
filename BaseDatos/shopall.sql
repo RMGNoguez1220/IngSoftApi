@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2023 a las 19:38:38
+-- Tiempo de generación: 17-10-2023 a las 19:44:29
 -- Versión del servidor: 8.1.0
 -- Versión de PHP: 8.0.28
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `carritocompra` (
   `id_carrito` int NOT NULL,
   `id_usuario` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -42,7 +42,7 @@ CREATE TABLE `carritoproducto` (
   `id_carrito` int NOT NULL,
   `id_producto` int NOT NULL,
   `cantidad` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -53,7 +53,7 @@ CREATE TABLE `carritoproducto` (
 CREATE TABLE `comprador` (
   `id_comprador` int NOT NULL,
   `id_usuario` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ CREATE TABLE `inventario` (
   `id_producto` int DEFAULT NULL,
   `id_vendedor` int DEFAULT NULL,
   `cantidad_stock` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -77,10 +77,10 @@ CREATE TABLE `inventario` (
 CREATE TABLE `notificacion` (
   `id_notificacion` int NOT NULL,
   `id_usuario` int DEFAULT NULL,
-  `tipo_notificacion` varchar(50) NOT NULL,
-  `contenido` text NOT NULL,
+  `tipo_notificacion` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `contenido` text COLLATE utf8mb4_general_ci NOT NULL,
   `fecha_hora` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -92,11 +92,11 @@ CREATE TABLE `ordencompra` (
   `id_orden` int NOT NULL,
   `id_usuario` int DEFAULT NULL,
   `fecha_hora` timestamp NULL DEFAULT NULL,
-  `estado` varchar(20) NOT NULL,
-  `direccion_envio` text NOT NULL,
-  `metodo_pago` varchar(50) NOT NULL,
+  `estado` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `direccion_envio` text COLLATE utf8mb4_general_ci NOT NULL,
+  `metodo_pago` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `monto_total` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -108,7 +108,7 @@ CREATE TABLE `ordenproducto` (
   `id_orden` int NOT NULL,
   `id_producto` int NOT NULL,
   `cantidad` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -118,12 +118,12 @@ CREATE TABLE `ordenproducto` (
 
 CREATE TABLE `producto` (
   `id_producto` int NOT NULL,
-  `nombre_producto` varchar(255) NOT NULL,
-  `descripcion_producto` text,
+  `nombre_producto` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `descripcion_producto` text COLLATE utf8mb4_general_ci,
   `precio` decimal(10,2) NOT NULL,
-  `categoria` varchar(255) NOT NULL,
+  `categoria` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `stock` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -143,8 +143,8 @@ CREATE TABLE `resenaproducto` (
   `id_usuario` int DEFAULT NULL,
   `id_producto` int DEFAULT NULL,
   `calificacion` int NOT NULL,
-  `comentario` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `comentario` text COLLATE utf8mb4_general_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -154,11 +154,11 @@ CREATE TABLE `resenaproducto` (
 
 CREATE TABLE `usuario` (
   `id_usuario` int NOT NULL,
-  `nombre_usuario` varchar(255) NOT NULL,
-  `correo_electronico` varchar(255) NOT NULL,
-  `contrasena` varchar(255) NOT NULL,
-  `rol` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `nombre_usuario` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `correo_electronico` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `contrasena` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `rol` varchar(20) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -176,10 +176,10 @@ INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `correo_electronico`, `co
 CREATE TABLE `vendedor` (
   `id_vendedor` int NOT NULL,
   `id_usuario` int DEFAULT NULL,
-  `nombre_tienda` varchar(255) NOT NULL,
-  `descripcion_tienda` text,
-  `categorias` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `nombre_tienda` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `descripcion_tienda` text COLLATE utf8mb4_general_ci,
+  `categorias` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tablas volcadas
