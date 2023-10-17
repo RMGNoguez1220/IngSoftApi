@@ -34,7 +34,7 @@ public class ProductoService {
 
     public ResponseEntity<Object> productoInsert(Producto producto) {
         this.productoRepository.save(producto);
-        productoResponse = new ProductoResponse(producto, "Se pudo crear el pedido", 200, true);
+        productoResponse = new ProductoResponse(producto, "Se pudo crear el producto", 200, true);
         return new ResponseEntity<>(productoResponse.responseInsert(), HttpStatus.OK);
     }
 
