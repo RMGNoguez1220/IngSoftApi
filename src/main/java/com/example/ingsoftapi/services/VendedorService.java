@@ -1,6 +1,8 @@
 package com.example.ingsoftapi.services;
 
 import com.example.ingsoftapi.domain.UsuarioResponse;
+import com.example.ingsoftapi.domain.VendedorResponse;
+import com.example.ingsoftapi.repository.VendedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

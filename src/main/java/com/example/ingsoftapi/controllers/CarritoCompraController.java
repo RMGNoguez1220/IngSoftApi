@@ -1,5 +1,6 @@
 package com.example.ingsoftapi.controllers;
 
+import com.example.ingsoftapi.services.CarritoCompraService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,29 +9,29 @@ import org.springframework.web.bind.annotation.*;
 public class CarritoCompraController {
 
 
-    private final Carrito_compraService carritoCompraService;
+    private final CarritoCompraService carritocompraService;
 
-    public CarritoCompraController(Carrito_compraService carritoCompraService) {
-        this.carritoCompraService = carritoCompraService;
+    public CarritoCompraController(CarritoCompraService carritocompraService) {
+        this.carritocompraService = carritocompraService;
     }
 
     @GetMapping("/all")
     public ResponseEntity<Object> getAllComprador() {
-        return carritoCompraService.getCarritoCompra();
+        return carritocompraService.getCarritoCompra();
     }
 
     @PostMapping("/create")
     public ResponseEntity<Object> insertComprador(@RequestBody CarritoCompra carritoCompra) {
-        return this.carritoCompraService.insertCarritoCompra(carritoCompra);
+        return this.carritocompraService.insertCarritoCompra(carritoCompra);
     }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Object> updateComprador(@PathVariable Long id, @RequestBody CarritoCompra carritoCompra) {
-        return this.carritoCompraService.updateCarritoCompra(id, carritoCompra);
+        return this.carritocompraService.updateCarritoCompra(id, carritoCompra);
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Object> CompradorDelete(@PathVariable Long id) {
-        return this.carritoCompraService.CarritoCompraDelete(id);
+        return this.carritocompraService.CarritoCompraDelete(id);
     }
 }

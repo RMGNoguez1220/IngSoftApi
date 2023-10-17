@@ -1,5 +1,6 @@
 package com.example.ingsoftapi.services;
 
+import com.example.ingsoftapi.domain.InventarioResponse;
 import com.example.ingsoftapi.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
