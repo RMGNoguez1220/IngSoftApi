@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class vendedorService {
+public class VendedorService {
 
 
     private final VendedorRepository vendedorRepository;
     private VendedorResponse vendedorResponse;
 
     @Autowired
-    public vendedorService(VendedorRepository vendedorRepository) {
+    public VendedorService(VendedorRepository vendedorRepository) {
         this.vendedorRepository = vendedorRepository;
     }
 

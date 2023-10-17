@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/carrito_compra")
-public class carrito_compraController {
+public class CarritoCompraController {
 
 
     private final Carrito_compraService carritoCompraService;
 
-    public carrito_compraController(Carrito_compraService carritoCompraService) {
+    public CarritoCompraController(Carrito_compraService carritoCompraService) {
         this.carritoCompraService = carritoCompraService;
     }
 

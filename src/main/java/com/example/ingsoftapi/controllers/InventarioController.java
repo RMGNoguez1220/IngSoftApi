@@ -1,16 +1,16 @@
 package com.example.ingsoftapi.controllers;
 
-import com.example.ingsoftapi.services.inventarioService;
+import com.example.ingsoftapi.services.InventarioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/inventario")
-public class inventarioController {
+public class InventarioController {
 
-    private final inventarioService inventarioService;
+    private final InventarioService inventarioService;
 
-    public inventarioController(inventarioService inventarioService) {
+    public InventarioController(InventarioService inventarioService) {
         this.inventarioService = inventarioService;
     }
 

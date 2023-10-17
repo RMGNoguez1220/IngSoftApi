@@ -10,13 +10,13 @@ import com.example.ingsoftapi.repository.InventarioRepository;
 import java.util.List;
 
 @Service
-public class inventarioService {
+public class InventarioService {
 
     private final InventarioRepository inventarioRepository;
     private InventarioResponse inventarioResponse;
 
     @Autowired
-    public inventarioService(InventarioRepository inventarioRepository) {
+    public InventarioService(InventarioRepository inventarioRepository) {
         this.inventarioRepository = inventarioRepository;
     }
 

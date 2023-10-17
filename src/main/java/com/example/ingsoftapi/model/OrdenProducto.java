@@ -10,7 +10,7 @@ import lombok.*;
 @ToString
 @Entity
 @Table
-public class Orden_Producto {
+public class OrdenProducto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_orden;

@@ -1,16 +1,15 @@
 package com.example.ingsoftapi.controllers;
 
-import com.example.ingsoftapi.services.resena_productoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/resena_producto")
-public class resena_productoController {
+public class ResenaProductoController {
 
-    private final resena_productoService ResenaProductoService;
+    private final com.example.ingsoftapi.services.ResenaProductoService ResenaProductoService;
 
-    public resena_productoController(Resena_productoService resenaProductoService) {
+    public ResenaProductoController(Resena_productoService resenaProductoService) {
         this.ResenaProductoService = resenaProductoService;
     }
 

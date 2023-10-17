@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/Orden_compra")
-public class orden_compraController {
+public class OrdenCompraController {
     private final Orden_compraService ordenCompraService;
 
     public notificacionController(Orden_compraService ordenCompraService) {

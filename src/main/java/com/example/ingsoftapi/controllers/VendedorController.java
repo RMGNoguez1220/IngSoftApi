@@ -2,16 +2,15 @@ package com.example.ingsoftapi.controllers;
 
 
 
-import com.example.ingsoftapi.services.vendedorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/vendedor")
-public class vendedorController {
-    private final vendedorService VendedorService;
+public class VendedorController {
+    private final com.example.ingsoftapi.services.VendedorService VendedorService;
 
-    public vendedorController(vendedorService VendedorService) {
+    public VendedorController(com.example.ingsoftapi.services.VendedorService VendedorService) {
         this.VendedorService = VendedorService;
     }
 

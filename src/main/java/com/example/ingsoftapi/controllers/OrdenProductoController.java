@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/orden_producto")
-public class ordenProductoController {
+public class OrdenProductoController {
 
     private final Orden_productoService ordenProductoService;
 
-    public ordenProductoController(Orden_productoService ordenProductoService) {
+    public OrdenProductoController(Orden_productoService ordenProductoService) {
         this.ordenProductoService = ordenProductoService;
     }
 

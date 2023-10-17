@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class resena_productoService {
+public class ResenaProductoService {
 
     private final Resena_productoRepository resenaProductoRepository;
     private Resena_productoResponse resenaProductoResponse;
 
     @Autowired
-    public resena_productoService(Resena_productoRepository resenaProductoRepository) {
+    public ResenaProductoService(Resena_productoRepository resenaProductoRepository) {
         this.resenaProductoRepository = resenaProductoRepository;
     }
 
