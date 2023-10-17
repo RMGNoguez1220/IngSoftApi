@@ -1,6 +1,9 @@
 package com.example.ingsoftapi.services;
 
+import com.example.ingsoftapi.domain.ResenaProductoResponse;
+import com.example.ingsoftapi.model.ResenaProducto;
 import com.example.ingsoftapi.model.Usuario;
+import com.example.ingsoftapi.repository.ResenaProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,55 +14,55 @@ import java.util.List;
 @Service
 public class ResenaProductoService {
 
-    private final Resena_productoRepository resenaProductoRepository;
-    private Resena_productoResponse resenaProductoResponse;
+    private final ResenaProductoRepository resenaproductoRepository;
+    private ResenaProductoResponse resenaproductoResponse;
 
     @Autowired
-    public ResenaProductoService(Resena_productoRepository resenaProductoRepository) {
-        this.resenaProductoRepository = resenaProductoRepository;
+    public ResenaProductoService(ResenaProductoRepository resenaproductoRepository) {
+        this.resenaproductoRepository = resenaproductoRepository;
     }
 
-    public ResponseEntity<Object> getresena_producto() {
-        List<Usuario> usuarioList = resenaProductoRepository.findAll();
-        if (!usuarioList.isEmpty()) {
-            resenaProductoResponse = new Resena_productoResponse(usuarioList, "Se han obtenido los registros", 200, true);
-            return new ResponseEntity<>(resenaProductoResponse.responseAll(), HttpStatus.OK);
+    public ResponseEntity<Object> getResenaProducto() {
+        List<ResenaProducto> resenaproductoList = resenaproductoRepository.findAll();
+        if (!resenaproductoList.isEmpty()) {
+            resenaproductoResponse = new ResenaProductoResponse(resenaproductoList, "Se han obtenido los registros", 200, true);
+            return new ResponseEntity<>(resenaproductoResponse.responseAll(), HttpStatus.OK);
         } else {
-            resenaProductoResponse = new Resena_productoResponse("No hay registros", 400, false);
-            return new ResponseEntity<>(resenaProductoResponse.responseAll(), HttpStatus.OK);
+            resenaproductoResponse = new ResenaProductoResponse("No hay registros", 400, false);
+            return new ResponseEntity<>(resenaproductoResponse.responseAll(), HttpStatus.OK);
         }
     }
 
-    public ResponseEntity<Object> insertResena_producto(Usuario usuario) {
-        this.resenaProductoRepository.save(usuario);
-        resenaProductoResponse = new Resena_productoResponse(usuario, "Se pudo crear el pedido", 200, true);
-        return new ResponseEntity<>(resenaProductoResponse.responseInsert(), HttpStatus.OK);
+    public ResponseEntity<Object> resenaproductoInsert(ResenaProducto resenaproducto) {
+        this.resenaproductoRepository.save(resenaproducto);
+        resenaproductoResponse = new ResenaProductoResponse(resenaproducto, "Se pudo crear el pedido", 200, true);
+        return new ResponseEntity<>(resenaproductoResponse.responseInsert(), HttpStatus.OK);
     }
 
-    public ResponseEntity<Object> updateResena_producto(final Long id, final Usuario usuario) {
-        if (resenaProductoRepository.findById(id).isPresent()) {
-            Usuario usuarioUpdated = resenaProductoRepository.findById(id).get();
-            usuarioUpdated.setId_usuario(usuario.getId_usuario());
-            usuarioUpdated.setId_producto(usuario.getId_producto());
-            usuarioUpdated.setCalificacion(usuario.getCalificacion());
-            usuarioUpdated.setComentario(usuario.getComentario());
-            resenaProductoRepository.save(usuarioUpdated);
-            resenaProductoResponse = new Resena_productoResponse(usuarioUpdated, "El resena_producto se modificó satisfactoriamente", 200, true);
-            return new ResponseEntity<>(resenaProductoResponse.responseInsert(), HttpStatus.OK);
+    public ResponseEntity<Object> resenaproductoUpdate(final Long id, final ResenaProducto resenaproducto) {
+        if (resenaproductoRepository.findById(id).isPresent()) {
+            ResenaProducto resenaproductoUpdated = resenaproductoRepository.findById(id).get();
+            resenaproductoUpdated.setId_usuario(resenaproducto.getId_usuario());
+            resenaproductoUpdated.setId_producto(resenaproducto.getId_producto());
+            resenaproductoUpdated.setCalificacion(resenaproducto.getCalificacion());
+            resenaproductoUpdated.setComentario(resenaproducto.getComentario());
+            resenaproductoRepository.save(resenaproductoUpdated);
+            resenaproductoResponse = new ResenaProductoResponse(resenaproductoUpdated, "El resena_producto se modificó satisfactoriamente", 200, true);
+            return new ResponseEntity<>(resenaproductoResponse.responseInsert(), HttpStatus.OK);
         } else {
-            resenaProductoResponse = new Resena_productoResponse("El resena_producto no existe, con el id: " + id, 400, false);
-            return new ResponseEntity<>(resenaProductoResponse.responseInsert(), HttpStatus.OK);
+            resenaproductoResponse = new ResenaProductoResponse("El resena_producto no existe, con el id: " + id, 400, false);
+            return new ResponseEntity<>(resenaproductoResponse.responseInsert(), HttpStatus.OK);
         }
     }
 
-    public ResponseEntity<Object> resena_productoDelete(final Long id) {
-        if (!this.resenaProductoRepository.findById(id).isEmpty()) {
-            this.resenaProductoRepository.deleteById(id);
-            resenaProductoResponse = new Resena_productoResponse("Se ha eliminado la reseña_producto", 200, true);
-            return new ResponseEntity<>(resenaProductoResponse.responseInsert(), HttpStatus.OK);
+    public ResponseEntity<Object> resenaproductoDelete(final Long id) {
+        if (!this.resenaproductoRepository.findById(id).isEmpty()) {
+            this.resenaproductoRepository.deleteById(id);
+            resenaproductoResponse = new ResenaProductoResponse("Se ha eliminado la reseña_producto", 200, true);
+            return new ResponseEntity<>(resenaproductoResponse.responseInsert(), HttpStatus.OK);
         } else {
-            resenaProductoResponse = new Resena_productoResponse("No se encontró el reseña_producto que quieres borrar ", 400, false);
-            return new ResponseEntity<>(resenaProductoResponse.responseInsert(), HttpStatus.OK);
+            resenaproductoResponse = new ResenaProductoResponse("No se encontró el reseña_producto que quieres borrar ", 400, false);
+            return new ResponseEntity<>(resenaproductoResponse.responseInsert(), HttpStatus.OK);
         }
     }
 

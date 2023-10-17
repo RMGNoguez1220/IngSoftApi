@@ -1,5 +1,6 @@
 package com.example.ingsoftapi.controllers;
 
+import com.example.ingsoftapi.model.Inventario;
 import com.example.ingsoftapi.services.InventarioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +22,12 @@ public class InventarioController {
 
     @PostMapping("/create")
     public ResponseEntity<Object> insertInventario(@RequestBody Inventario inventario) {
-        return this.inventarioService.insertInventario(inventario);
+        return this.inventarioService.inventarioInsert(inventario);
     }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Object> updateInventario(@PathVariable Long id, @RequestBody Inventario inventario) {
-        return this.inventarioService.updateInventario(id, inventario);
+        return this.inventarioService.inventarioUpdate(id, inventario);
     }
 
     @DeleteMapping("/delete/{id}")

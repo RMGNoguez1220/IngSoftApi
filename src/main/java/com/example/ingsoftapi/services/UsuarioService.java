@@ -22,7 +22,7 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public ResponseEntity<Object> getUsuarios() {
+    public ResponseEntity<Object> getUsers() {
         List<Usuario> usuarioList = usuarioRepository.findAll();
         if (!usuarioList.isEmpty()) {
             usuarioResponse = new UsuarioResponse(usuarioList, "Se han obtenido los registros", 200, true);
@@ -33,13 +33,13 @@ public class UsuarioService {
         }
     }
 
-    public ResponseEntity<Object> insertUsuario(Usuario usuario) {
+    public ResponseEntity<Object> insertUser(Usuario usuario) {
         this.usuarioRepository.save(usuario);
         usuarioResponse = new UsuarioResponse(usuario, "Se pudo crear el pedido", 200, true);
         return new ResponseEntity<>(usuarioResponse.responseInsert(), HttpStatus.OK);
     }
 
-    public ResponseEntity<Object> updateUsuario(final Long id, final Usuario usuario) {
+    public ResponseEntity<Object> updateUser(final Long id, final Usuario usuario) {
         if (usuarioRepository.findById(id).isPresent()) {
             Usuario userUpdated = usuarioRepository.findById(id).get();
             userUpdated.setNombre_usuario(usuario.getNombre_usuario());
@@ -55,7 +55,7 @@ public class UsuarioService {
         }
     }
 
-    public ResponseEntity<Object> userDelete(final Long id) {
+    public ResponseEntity<Object> deleteUser(final Long id) {
         if (!this.usuarioRepository.findById(id).isEmpty()) {
             this.usuarioRepository.deleteById(id);
             usuarioResponse = new UsuarioResponse("Se ha eliminado el usuario", 200, true);

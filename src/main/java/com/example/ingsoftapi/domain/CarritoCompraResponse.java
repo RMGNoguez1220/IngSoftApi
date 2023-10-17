@@ -12,30 +12,30 @@ import java.util.List;
 @Setter
 @ToString
 
-public class CarritoCompraResponse extends SuperResponse{
-    private CarritoCompra carritoCompra;
-    private List<CarritoCompra> carritoCompraList;
+public class CarritoCompraResponse extends SuperResponse {
+    private CarritoCompra carritocompra;
+    private List<CarritoCompra> carritocompraList;
     private HashMap<String, Object> data = new HashMap<>();
 
-    public CarritoCompraResponse(final List<CarritoCompra> carritoCompraList, final String message, final int status, final boolean flag) {
+    public CarritoCompraResponse(final List<CarritoCompra> carritocompraList, final String message, final int status, final boolean flag) {
         super(flag, message, status);
-        this.carritoCompraList = carritoCompraList;
+        this.carritocompraList = carritocompraList;
     }
 
     public CarritoCompraResponse(String message, int status, boolean flag) {
         super(flag, message, status);
     }
 
-    public CarritoCompraResponse(CarritoCompra carritoCompra, String message, int status, boolean flag) {
-        super (flag, message, status);
-        this.carritoCompra = carritoCompra;
+    public CarritoCompraResponse(CarritoCompra carritocompra, String message, int status, boolean flag) {
+        super(flag, message, status);
+        this.carritocompra = carritocompra;
     }
 
     public Object responseAll() {
         data.put("Flag", isFlag());
         data.put("Message", getMessage());
         data.put("Status", getStatusCode());
-        data.put("Data", this.carritoCompraList);
+        data.put("Data", this.carritocompraList);
         return data;
     }
 
@@ -43,7 +43,7 @@ public class CarritoCompraResponse extends SuperResponse{
         data.put("Flag", isFlag());
         data.put("Message", getMessage());
         data.put("Status", getStatusCode());
-        data.put("Data", this.carritoCompra);
+        data.put("Data", this.carritocompra);
         return data;
     }
 }

@@ -13,29 +13,29 @@ import java.util.List;
 @ToString
 
 public class OrdenProductoResponse extends SuperResponse{
-    private OrdenProducto ordenProducto;
-    private List<OrdenProducto> ordenProductoList;
+    private OrdenProducto ordenproducto;
+    private List<OrdenProducto> ordenproductoList;
     private HashMap<String, Object> data = new HashMap<>();
 
-    public OrdenProductoResponse(final List<OrdenProducto> ordenProductoList, final String message, final int status, final boolean flag) {
+    public OrdenProductoResponse(final List<OrdenProducto> ordenproductoList, final String message, final int status, final boolean flag) {
         super(flag, message, status);
-        this.ordenProductoList = ordenProductoList;
+        this.ordenproductoList = ordenproductoList;
     }
 
     public OrdenProductoResponse(String message, int status, boolean flag) {
         super(flag, message, status);
     }
 
-    public OrdenProductoResponse(OrdenProducto ordenProducto, String message, int status, boolean flag) {
+    public OrdenProductoResponse(OrdenProducto ordenproducto, String message, int status, boolean flag) {
         super (flag, message, status);
-        this.ordenProducto = ordenProducto;
+        this.ordenproducto = ordenproducto;
     }
 
     public Object responseAll() {
         data.put("Flag", isFlag());
         data.put("Message", getMessage());
         data.put("Status", getStatusCode());
-        data.put("Data", this.ordenProductoList);
+        data.put("Data", this.ordenproductoList);
         return data;
     }
 
@@ -43,7 +43,7 @@ public class OrdenProductoResponse extends SuperResponse{
         data.put("Flag", isFlag());
         data.put("Message", getMessage());
         data.put("Status", getStatusCode());
-        data.put("Data", this.ordenProducto);
+        data.put("Data", this.ordenproducto);
         return data;
     }
 }

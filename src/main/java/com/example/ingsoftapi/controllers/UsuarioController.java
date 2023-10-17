@@ -21,22 +21,22 @@ public class UsuarioController {
 
     @GetMapping("/all")
     public ResponseEntity<Object> getAllUsuario() {
-        return usuarioService.getUsuarios();
+    return usuarioService.getUsers();
     }
 
     @PostMapping("/create")
     public ResponseEntity<Object> insertUsuario(@RequestBody Usuario usuario) {
-        return this.usuarioService.insertUsuario(usuario);
+        return this.usuarioService.insertUser(usuario);
     }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Object> updateUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
-        return this.usuarioService.updateUsuario(id, usuario);
+        return this.usuarioService.updateUser(id, usuario);
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Object> deleteUsuario(@PathVariable Long id) {
-        return this.usuarioService.userDelete(id);
+        return this.usuarioService.deleteUser(id);
     }
 
 }

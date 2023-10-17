@@ -1,5 +1,7 @@
 package com.example.ingsoftapi.controllers;
 
+import com.example.ingsoftapi.model.ResenaProducto;
+import com.example.ingsoftapi.services.ResenaProductoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,29 +9,29 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/v1/resena_producto")
 public class ResenaProductoController {
 
-    private final com.example.ingsoftapi.services.ResenaProductoService ResenaProductoService;
+    private final ResenaProductoService resenaproductoService;
 
-    public ResenaProductoController(Resena_productoService resenaProductoService) {
-        this.ResenaProductoService = resenaProductoService;
+    public ResenaProductoController(ResenaProductoService resenaproductoService) {
+        this.resenaproductoService = resenaproductoService;
     }
 
     @GetMapping("/all")
-    public ResponseEntity<Object> getAllResena_producto() {
-        return ResenaProductoService.getresena_producto();
+    public ResponseEntity<Object> getAllResenaProducto() {
+        return ResenaProductoService.getResenaProducto();
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Object> insertResena_producto(@RequestBody Resena_producto resenaProducto) {
-        return this.ResenaProductoService.insertResena_producto(resenaProducto);
+    public ResponseEntity<Object> insertResenaProducto(@RequestBody ResenaProducto resenaproducto) {
+        return this.resenaproductoService.resenaproductoInsert(resenaproducto);
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Object> updateResena_producto(@PathVariable Long id, @RequestBody Resena_producto resenaProducto) {
-        return this.ResenaProductoService.updateResena_producto(id, resenaProducto);
+    public ResponseEntity<Object> updateResenaProducto(@PathVariable Long id, @RequestBody ResenaProducto resenaproducto) {
+        return this.resenaproductoService.resenaproductoUpdate(id, resenaproducto);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Object> resena_productoDelete(@PathVariable Long id) {
-        return this.ResenaProductoService.resena_productoDelete(id);
+    public ResponseEntity<Object> deleteResenaProducto(@PathVariable Long id) {
+        return this.resenaproductoService.resenaproductoDelete(id);
     }
 }

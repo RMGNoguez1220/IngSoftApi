@@ -13,13 +13,13 @@ import java.util.List;
 @ToString
 
 public class ResenaProductoResponse extends SuperResponse{
-    private ResenaProducto resenaProducto;
-    private List<ResenaProducto> resenaProductoList;
+    private ResenaProducto resenaproducto;
+    private List<ResenaProducto> resenaproductoList;
     private HashMap<String, Object> data = new HashMap<>();
 
-    public ResenaProductoResponse(final List<ResenaProducto> resenaProductoList, final String message, final int status, final boolean flag) {
+    public ResenaProductoResponse(final List<ResenaProducto> resenaproductoList, final String message, final int status, final boolean flag) {
         super(flag, message, status);
-        this.resenaProductoList = resenaProductoList;
+        this.resenaproductoList = resenaproductoList;
     }
 
     public ResenaProductoResponse(String message, int status, boolean flag) {
@@ -28,14 +28,14 @@ public class ResenaProductoResponse extends SuperResponse{
 
     public ResenaProductoResponse(ResenaProducto resenaProducto, String message, int status, boolean flag) {
         super (flag, message, status);
-        this.resenaProducto = resenaProducto;
+        this.resenaproducto = resenaProducto;
     }
 
     public Object responseAll() {
         data.put("Flag", isFlag());
         data.put("Message", getMessage());
         data.put("Status", getStatusCode());
-        data.put("Data", this.resenaProductoList);
+        data.put("Data", this.resenaproductoList);
         return data;
     }
 
@@ -43,7 +43,7 @@ public class ResenaProductoResponse extends SuperResponse{
         data.put("Flag", isFlag());
         data.put("Message", getMessage());
         data.put("Status", getStatusCode());
-        data.put("Data", this.resenaProducto);
+        data.put("Data", this.resenaproducto);
         return data;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.ingsoftapi.services;
 
 import com.example.ingsoftapi.domain.InventarioResponse;
+import com.example.ingsoftapi.model.Inventario;
 import com.example.ingsoftapi.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,7 @@ public class InventarioService {
     }
 
     public ResponseEntity<Object> getInventario() {
-        List<Usuario> inventarioList = inventarioRepository.findAll();
+        List<Inventario> inventarioList = inventarioRepository.findAll();
         if (!inventarioList.isEmpty()) {
             inventarioResponse = new InventarioResponse(inventarioList, "Se han obtenido los registros", 200, true);
             return new ResponseEntity<>(inventarioResponse.responseAll(), HttpStatus.OK);
@@ -32,15 +33,15 @@ public class InventarioService {
         }
     }
 
-    public ResponseEntity<Object> insertInventario(Usuario inventario) {
+    public ResponseEntity<Object> inventarioInsert(Inventario inventario) {
         this.inventarioRepository.save(inventario);
         inventarioResponse = new InventarioResponse(inventario, "Se pudo crear el pedido", 200, true);
         return new ResponseEntity<>(inventarioResponse.responseInsert(), HttpStatus.OK);
     }
 
-    public ResponseEntity<Object> updateInventario(final Long id, final Usuario inventario) {
+    public ResponseEntity<Object> inventarioUpdate(final Long id, final Inventario inventario) {
         if (inventarioRepository.findById(id).isPresent()) {
-            Usuario inventarioUpdated = inventarioRepository.findById(id).get();
+            Inventario inventarioUpdated = inventarioRepository.findById(id).get();
             inventarioUpdated.setId_producto(inventario.getId_producto());
             inventarioUpdated.setId_vendedor(inventario.getId_vendedor());
             inventarioUpdated.setCantidad_stock(inventario.getCantidad_stock());

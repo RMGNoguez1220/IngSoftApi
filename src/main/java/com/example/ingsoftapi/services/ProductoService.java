@@ -1,5 +1,6 @@
 package com.example.ingsoftapi.services;
 
+import com.example.ingsoftapi.domain.ProductoResponse;
 import com.example.ingsoftapi.model.Producto;
 import com.example.ingsoftapi.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class ProductoService {
         this.productoRepository = productoRepository;
     }
 
-    public ResponseEntity<Object> getProductos() {
+    public ResponseEntity<Object> getProducto() {
         List<Producto> productoList = productoRepository.findAll();
         if (!productoList.isEmpty()) {
             productoResponse = new ProductoResponse(productoList, "Se han obtenido los registros", 200, true);
@@ -31,22 +32,22 @@ public class ProductoService {
         }
     }
 
-    public ResponseEntity<Object> insertProducto(Producto producto) {
+    public ResponseEntity<Object> productoInsert(Producto producto) {
         this.productoRepository.save(producto);
         productoResponse = new ProductoResponse(producto, "Se pudo crear el pedido", 200, true);
         return new ResponseEntity<>(productoResponse.responseInsert(), HttpStatus.OK);
     }
 
-    public ResponseEntity<Object> updateProducto(final Long id, final Producto producto) {
+    public ResponseEntity<Object> productoUpdate(final Long id, final Producto producto) {
         if (productoRepository.findById(id).isPresent()) {
-            Producto userUpdated = productoRepository.findById(id).get();
-            userUpdated.setNombre_producto(producto.getNombre_producto());
-            userUpdated.setDescripcion_producto(producto.getDescripcion_producto());
-            userUpdated.setPrecio(producto.getPrecio());
-            userUpdated.setCategoria(producto.getCategoria());
-            userUpdated.setStock(producto.getStock());
-            productoRepository.save(userUpdated);
-            productoResponse = new ProductoResponse(userUpdated, "El producto se modificó satisfactoriamente", 200, true);
+            Producto productoUpdated = productoRepository.findById(id).get();
+            productoUpdated.setNombre_producto(producto.getNombre_producto());
+            productoUpdated.setDescripcion_producto(producto.getDescripcion_producto());
+            productoUpdated.setPrecio(producto.getPrecio());
+            productoUpdated.setCategoria(producto.getCategoria());
+            productoUpdated.setStock(producto.getStock());
+            productoRepository.save(productoUpdated);
+            productoResponse = new ProductoResponse(productoUpdated, "El producto se modificó satisfactoriamente", 200, true);
             return new ResponseEntity<>(productoResponse.responseInsert(), HttpStatus.OK);
         } else {
             productoResponse = new ProductoResponse("El producto no existe, con el id: " + id, 400, false);
@@ -54,7 +55,7 @@ public class ProductoService {
         }
     }
 
-    public ResponseEntity<Object> productDelete(final Long id) {
+    public ResponseEntity<Object> productoDelete(final Long id) {
         if (!this.productoRepository.findById(id).isEmpty()) {
             this.productoRepository.deleteById(id);
             productoResponse = new ProductoResponse("Se ha eliminado el usuario", 200, true);
