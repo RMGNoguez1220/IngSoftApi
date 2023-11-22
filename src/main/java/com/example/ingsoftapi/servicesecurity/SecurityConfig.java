@@ -27,9 +27,59 @@ public class SecurityConfig {
                 .csrf().disable()
                 .authorizeRequests()
                 .requestMatchers("/api/v1/usuario/all").hasRole("admin")
-                .requestMatchers("/api/v1/usuario/create").hasRole("admin")
-                .requestMatchers("/api/v1/usuario/update/**").hasRole("moderador")
-                .requestMatchers("/api/v1/usuario/delete/**").hasRole("moderador")
+                .requestMatchers("/api/v1/usuario/create").hasRole("cliente")
+                .requestMatchers("/api/v1/usuario/update/**").hasRole("cliente")
+                .requestMatchers("/api/v1/usuario/delete/**").hasRole("admin")
+
+                .requestMatchers("api/v1/carrito_compra/all").hasRole("admin")
+                .requestMatchers("api/v1/carrito_compra/create").hasRole("admin")
+                .requestMatchers("api/v1/carrito_compra/update/**").hasRole("admin")
+                .requestMatchers("api/v1/carrito_compra/delete/**").hasRole("admin")
+
+                .requestMatchers("api/v1/carrito_producto/all").hasRole("admin")
+                .requestMatchers("api/v1/carrito_producto/create").hasRole("admin")
+                .requestMatchers("api/v1/carrito_producto/**").hasRole("admin")
+                .requestMatchers("api/v1/carrito_producto/**").hasRole("admin")
+
+                .requestMatchers("api/v1/comprador/all").hasRole("moderador")
+                .requestMatchers("api/v1/comprador/create").hasRole("moderador")
+                .requestMatchers("api/v1/comprador/update/**").hasRole("moderador")
+                .requestMatchers("api/v1/comprador/delete/**").hasRole("moderador")
+
+                .requestMatchers("api/v1/inventario/create").hasRole("moderador")
+                .requestMatchers("api/v1/inventario/update/**").hasRole("moderador")
+                .requestMatchers("api/v1/inventario/delete/**").hasRole("moderador")
+
+                .requestMatchers("api/v1/Notificacion/all").hasRole("cliente")
+                .requestMatchers("api/v1/Notificacion/create").hasRole("cliente")
+                .requestMatchers("api/v1/Notificacion/update/**").hasRole("cliente")
+                .requestMatchers("api/v1/Notificacion/delete/**").hasRole("cliente")
+
+                .requestMatchers("api/v1/Orden_compra/all").hasRole("moderador")
+                .requestMatchers("api/v1/Orden_compra/create").hasRole("moderador")
+                .requestMatchers("api/v1/Orden_compra/update/**").hasRole("moderador")
+                .requestMatchers("api/v1/Orden_compra/delete/**").hasRole("moderador")
+
+                .requestMatchers("api/v1/orden_producto/all").hasRole("moderador")
+                .requestMatchers("api/v1/orden_producto/create").hasRole("moderador")
+                .requestMatchers("api/v1/orden_producto/update/**").hasRole("moderador")
+                .requestMatchers("api/v1/orden_producto/delete/**").hasRole("moderador")
+
+                .requestMatchers("api/v1/producto/all").hasRole("cliente")
+                .requestMatchers("api/v1/producto/create").hasRole("admin")
+                .requestMatchers("api/v1/producto/update/**").hasRole("admin")
+                .requestMatchers("api/v1/producto/delete/**").hasRole("admin")
+
+                .requestMatchers("api/v1/resena_producto/all").hasRole("cliente")
+                .requestMatchers("api/v1/resena_producto/create").hasRole("cliente")
+                .requestMatchers("api/v1/resena_producto/update/**").hasRole("cliente")
+                .requestMatchers("api/v1/resena_producto/delete/**").hasRole("cliente")
+
+                .requestMatchers("api/v1/vendedor/all").hasRole("admin")
+                .requestMatchers("api/v1/vendedor/create").hasRole("admin")
+                .requestMatchers("api/v1/vendedor/update/**").hasRole("admin")
+                .requestMatchers("api/v1/vendedor/delete/**").hasRole("admin")
+
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic()
@@ -46,12 +96,12 @@ public class SecurityConfig {
 
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(User.withUsername("admin1").password(passwordEncoder().encode("1234")).roles("admin").build());
-        manager.createUser(User.withUsername("moderator").password(passwordEncoder().encode("Luis1")).roles("moderador").build());
-        manager.createUser(User.withUsername("cliente1").password(passwordEncoder().encode("Lluvia1")).roles("cliente").build());
-        manager.createUser(User.withUsername("cliente2").password(passwordEncoder().encode("Alex1")).roles("cliente").build());
-        manager.createUser(User.withUsername("vendedor1").password(passwordEncoder().encode("Noguez1")).roles("vendedor").build());
-        manager.createUser(User.withUsername("vendedor2").password(passwordEncoder().encode("Pollo1")).roles("vendedor").build());
-        return  manager;
+        manager.createUser(User.withUsername("LuisAR").password(passwordEncoder().encode("Luis1")).roles("moderador").build());
+        manager.createUser(User.withUsername("Lluvia").password(passwordEncoder().encode("Lluvia1")).roles("cliente").build());
+        manager.createUser(User.withUsername("AlexMP").password(passwordEncoder().encode("Alex1")).roles("cliente").build());
+        manager.createUser(User.withUsername("RickGN").password(passwordEncoder().encode("Noguez1")).roles("vendedor").build());
+        manager.createUser(User.withUsername("DulceST").password(passwordEncoder().encode("Dulce1")).roles("vendedor").build());
+        return manager;
 
 /*      final Properties users = new Properties();
         users.put("admin","admin1, admin,enabled"); //add whatever other user you need
