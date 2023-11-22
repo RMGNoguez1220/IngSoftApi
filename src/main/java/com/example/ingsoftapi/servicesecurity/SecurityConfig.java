@@ -79,7 +79,6 @@ public class SecurityConfig {
                 .requestMatchers("api/v1/vendedor/create").hasRole("admin")
                 .requestMatchers("api/v1/vendedor/update/**").hasRole("admin")
                 .requestMatchers("api/v1/vendedor/delete/**").hasRole("admin")
-
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic()
