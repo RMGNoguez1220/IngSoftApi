@@ -8,7 +8,7 @@ import lombok.*; //es empleada para usar todas las que conlleva o puede tener co
 @Setter
 @ToString
 @Entity
-@Table
+@Table(name = "vendedor")
 public class Vendedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -31,10 +31,10 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/usuario/update/**").hasRole("cliente")
                 .requestMatchers("/api/v1/usuario/delete/**").hasRole("admin")
 
-                .requestMatchers("api/v1/carritocompra/all").hasRole("admin")
-                .requestMatchers("api/v1/carritocompra/create").hasRole("admin")
-                .requestMatchers("api/v1/carritocompra/update/**").hasRole("admin")
-                .requestMatchers("api/v1/carritocompra/delete/**").hasRole("admin")
+                .requestMatchers("api/v1/carrito_compra/all").hasRole("admin")
+                .requestMatchers("api/v1/carrito_compra/create").hasRole("admin")
+                .requestMatchers("api/v1/carrito_compra/update/**").hasRole("admin")
+                .requestMatchers("api/v1/carrito_compra/delete/**").hasRole("admin")
 
                 .requestMatchers("api/v1/carrito_producto/all").hasRole("admin")
                 .requestMatchers("api/v1/carrito_producto/create").hasRole("admin")
