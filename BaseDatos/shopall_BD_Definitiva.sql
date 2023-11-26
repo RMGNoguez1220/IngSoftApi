@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2023 a las 19:44:29
+-- Tiempo de generación: 26-11-2023 a las 05:09:32
 -- Versión del servidor: 8.1.0
 -- Versión de PHP: 8.0.28
 
@@ -31,6 +31,15 @@ CREATE TABLE `carritocompra` (
   `id_carrito` int NOT NULL,
   `id_usuario` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `carritocompra`
+--
+
+INSERT INTO `carritocompra` (`id_carrito`, `id_usuario`) VALUES
+(1, 5),
+(3, 6),
+(2, 7);
 
 -- --------------------------------------------------------
 
@@ -130,7 +139,10 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `nombre_producto`, `descripcion_producto`, `precio`, `categoria`, `stock`) VALUES
-(1, 'Chetos', 'Son unos chetos ricos', 54.00, 'churros', 20);
+(1, 'M&M\'s', 'Son unas lunetas', 25.00, 'Golosinas', 13),
+(2, 'Sabritas', 'Son unas sabritas feas', 28.00, 'Churros', 25),
+(3, 'Coca-Cola', 'Es un refresco', 32.00, 'Bebidas', 28),
+(5, 'producto4', 'Es un producto', 42.00, 'Chicles', 30);
 
 -- --------------------------------------------------------
 
@@ -165,7 +177,11 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `correo_electronico`, `contrasena`, `rol`) VALUES
-(1, 'Ricardo', 'ricardo@gmail.com', '1234', 'Empleado');
+(1, 'Antonio2', 'antonio@jijijo.com', '12345', 'Jefesi'),
+(4, 'Juan2', 'juan2@jijijo.com', '12345', 'Jefesi'),
+(5, 'Antonio', 'antonio@jijija.com', '12345', 'Jefe'),
+(6, 'Juanka1', 'juan1@asjdkajs.com', 'si', 'Juanito'),
+(7, 'Dulce8012', 'dulce12@gmail.com', '8012', 'Cliente');
 
 -- --------------------------------------------------------
 
@@ -272,7 +288,7 @@ ALTER TABLE `vendedor`
 -- AUTO_INCREMENT de la tabla `carritocompra`
 --
 ALTER TABLE `carritocompra`
-  MODIFY `id_carrito` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_carrito` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `comprador`
@@ -302,7 +318,7 @@ ALTER TABLE `ordencompra`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_producto` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `resenaproducto`
@@ -314,7 +330,7 @@ ALTER TABLE `resenaproducto`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor`
@@ -377,6 +393,12 @@ ALTER TABLE `ordenproducto`
 ALTER TABLE `resenaproducto`
   ADD CONSTRAINT `resenaproducto_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
   ADD CONSTRAINT `resenaproducto_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`);
+
+--
+-- Filtros para la tabla `vendedor`
+--
+ALTER TABLE `vendedor`
+  ADD CONSTRAINT `vendedor_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
