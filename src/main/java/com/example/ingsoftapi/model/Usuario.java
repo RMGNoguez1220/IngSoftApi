@@ -9,7 +9,7 @@ import lombok.*; //es empleada para usar todas las que conlleva o puede tener co
 @Setter
 @ToString
 @Entity
-@Table
+@Table(name = "usuario")
 
 public class Usuario {
     @Id

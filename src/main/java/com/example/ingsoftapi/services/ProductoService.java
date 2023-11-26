@@ -58,10 +58,10 @@ public class ProductoService {
     public ResponseEntity<Object> productoDelete(final Long id) {
         if (!this.productoRepository.findById(id).isEmpty()) {
             this.productoRepository.deleteById(id);
-            productoResponse = new ProductoResponse("Se ha eliminado el usuario", 200, true);
+            productoResponse = new ProductoResponse("Se ha eliminado el producto", 200, true);
             return new ResponseEntity<>(productoResponse.responseInsert(), HttpStatus.OK);
         } else {
-            productoResponse = new ProductoResponse("No se encontró el usuario que quieres borrar ", 400, false);
+            productoResponse = new ProductoResponse("No se encontró el producto que quieres borrar ", 400, false);
             return new ResponseEntity<>(productoResponse.responseInsert(), HttpStatus.OK);
         }
     }

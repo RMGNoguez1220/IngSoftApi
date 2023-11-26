@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/carritocompra")
+@RequestMapping("api/v1/carrito_compra")
 public class CarritoCompraController {
 
     private static final Logger logg = LoggerFactory.getLogger(CarritoCompraController.class);

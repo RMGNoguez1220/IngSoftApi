@@ -40,7 +40,6 @@ public class CarritoCompraService {
     public ResponseEntity<Object> carritocompraUpdate(final Long id, final CarritoCompra carritocompra) {
         if (carritocompraRepository.findById(id).isPresent()) {
             CarritoCompra carritocompraUpdated = carritocompraRepository.findById(id).get();
-            carritocompraUpdated.setId_carrito(carritocompra.getId_carrito());
             carritocompraUpdated.setId_usuario(carritocompra.getId_usuario());
             carritocompraRepository.save(carritocompraUpdated);
             carritocompraResponse = new CarritoCompraResponse(carritocompraUpdated, "El carrito compra se modificó satisfactoriamente", 200, true);

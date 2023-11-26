@@ -57,10 +57,10 @@ public class InventarioService {
     public ResponseEntity<Object> inventarioDelete(final Long id) {
         if (!this.inventarioRepository.findById(id).isEmpty()) {
             this.inventarioRepository.deleteById(id);
-            inventarioResponse = new InventarioResponse("Se ha eliminado el usuario", 200, true);
+            inventarioResponse = new InventarioResponse("Se ha eliminado el inventario", 200, true);
             return new ResponseEntity<>(inventarioResponse.responseInsert(), HttpStatus.OK);
         } else {
-            inventarioResponse = new InventarioResponse("No se encontró el usuario que quieres borrar ", 400, false);
+            inventarioResponse = new InventarioResponse("No se encontró el inventario que quieres borrar ", 400, false);
             return new ResponseEntity<>(inventarioResponse.responseInsert(), HttpStatus.OK);
         }
     }

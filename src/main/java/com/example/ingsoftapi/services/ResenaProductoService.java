@@ -60,7 +60,7 @@ public class ResenaProductoService {
             resenaproductoResponse = new ResenaProductoResponse("Se ha eliminado la reseña_producto", 200, true);
             return new ResponseEntity<>(resenaproductoResponse.responseInsert(), HttpStatus.OK);
         } else {
-            resenaproductoResponse = new ResenaProductoResponse("No se encontró el reseña_producto que quieres borrar ", 400, false);
+            resenaproductoResponse = new ResenaProductoResponse("No se encontró la reseña_producto que quieres borrar ", 400, false);
             return new ResponseEntity<>(resenaproductoResponse.responseInsert(), HttpStatus.OK);
         }
     }
